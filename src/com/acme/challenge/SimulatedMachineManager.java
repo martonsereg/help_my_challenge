@@ -3,10 +3,10 @@ package com.acme.challenge;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.TreeMap;
 
 public class SimulatedMachineManager {
 
@@ -16,9 +16,9 @@ public class SimulatedMachineManager {
     private List<SimulatedMachine> generalQMachines = new ArrayList<SimulatedMachine>();
     private List<SimulatedMachine> exportQMachines = new ArrayList<SimulatedMachine>();
 
-    private Map<Date, Integer> urlStatistics = new HashMap<Date, Integer>();
-    private Map<Date, Integer> generalStatistics = new HashMap<Date, Integer>();
-    private Map<Date, Integer> exportStatistics = new HashMap<Date, Integer>();
+    private Map<Date, Integer> urlStatistics = new TreeMap<Date, Integer>();
+    private Map<Date, Integer> generalStatistics = new TreeMap<Date, Integer>();
+    private Map<Date, Integer> exportStatistics = new TreeMap<Date, Integer>();
 
     public void addMachine(SimulatedMachine machine, String type) {
         if (type.equals("url")) {
@@ -51,7 +51,7 @@ public class SimulatedMachineManager {
             currentBlock = job.getDateTime();
         }
         // in case of new block (new second in logfile) create statistics
-        if (currentBlock.getTime() < job.getDateTime().getTime()) {
+        if (currentBlock.getTime() != job.getDateTime().getTime()) {
             writeStatistics(currentBlock);
             currentBlock = job.getDateTime();
         }
