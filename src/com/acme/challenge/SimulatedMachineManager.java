@@ -1,4 +1,4 @@
-package com.prezi.scale;
+package com.acme.challenge;
 
 import java.util.ArrayList;
 import java.util.Calendar;

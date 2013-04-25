@@ -1,4 +1,4 @@
-package com.prezi.scale;
+package com.acme.challenge;
 
 import java.io.File;
 import java.io.FileNotFoundException;
