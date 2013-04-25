@@ -27,7 +27,6 @@ public class LogParser {
         job.setId(blocks[2]);
         job.setQueueType(blocks[3]);
         job.setRuntimeInSeconds(Double.valueOf(blocks[4]));
-        System.out.println(job);
         return job;
     }
 
